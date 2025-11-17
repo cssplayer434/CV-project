@@ -1,2 +1,2 @@
-web: gunicorn cvbuilder.wsgi:application
+web: cd cvbuilder && gunicorn cvbuilder.wsgi:application
 
