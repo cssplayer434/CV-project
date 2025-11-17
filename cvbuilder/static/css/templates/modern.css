@@ -1,0 +1,63 @@
+body {
+    background: #eef3fb;
+    font-family: "Inter", sans-serif;
+    color: #333;
+}
+
+.modern-container {
+    width: 900px;
+    margin: 40px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+}
+
+.banner {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    padding: 35px;
+    color: white;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+section {
+    margin-top: 30px;
+}
+
+h2 {
+    font-size: 22px;
+    color: #2563eb;
+    border-left: 6px solid #2563eb;
+    padding-left: 10px;
+}
+
+.tag-box span {
+    background: #2563eb;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin: 4px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.card {
+    padding: 15px;
+    background: #f8faff;
+    border-left: 4px solid #2563eb;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+.school {
+    font-style: italic;
+    color: #555;
+}
+
+

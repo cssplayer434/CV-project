@@ -21,8 +21,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),  # login/logout/password reset
-    path('accounts/', include('accounts.urls')),            # custom signup
+    path('accounts/', include('accounts.urls')),            # custom signup/logout overrides
+    path('accounts/', include('django.contrib.auth.urls')),  # login/password reset
     path('', include('cvapp.urls')),                        # main app
 ]
 
