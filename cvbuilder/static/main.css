@@ -1,0 +1,14 @@
+.template-grid {
+  display: flex;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.template-grid .card {
+  width: 250px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #bbb;
+  text-align: center;
+  padding: 10px;
+}

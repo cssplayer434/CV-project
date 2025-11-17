@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Your CVs</h1>
+
+<a class="btn" href="{% url 'create_cv' %}">+ Create New CV</a>
+
+<table class="cv-table">
+    <tr>
+        <th>Title</th>
+        <th>Template</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for cv in cvs %}
+    <tr>
+        <td>{{ cv.title }}</td>
+        <td>{{ cv.selected_template.name }}</td>
+        <td>
+            <a href="{% url 'preview_cv' cv.id %}">Preview</a> |
+            <a href="{% url 'edit_cv' cv.id %}">Edit</a> |
+            <a href="{% url 'delete_cv' cv.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

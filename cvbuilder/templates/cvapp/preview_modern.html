@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{{ cv.name }} – Modern Resume</title>
+
+<style>
+body {
+    font-family: "Inter", sans-serif;
+    background: #f1ecff;
+    padding: 40px;
+}
+.container {
+    width: 850px;
+    margin: auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+}
+.banner {
+    background: linear-gradient(90deg, #7742ff, #b33fff);
+    color: white;
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.banner h1 {
+    font-size: 38px;
+    margin: 0;
+}
+.section-title {
+    font-size: 22px;
+    color: #7a3eff;
+    border-left: 5px solid #7a3eff;
+    padding-left: 10px;
+    margin-top: 30px;
+}
+.tag {
+    display: inline-block;
+    background: #efe4ff;
+    color: #7a3eff;
+    padding: 8px 14px;
+    border-radius: 25px;
+    margin: 6px 4px;
+}
+.card {
+    background: #f6f1ff;
+    padding: 15px;
+    margin-top: 15px;
+    border-left: 6px solid #7a3eff;
+    border-radius: 12px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="banner">
+        <h1>{{ cv.name }}</h1>
+        <p>{{ cv.email }} • {{ cv.phone }} • {{ cv.location }}</p>
+    </div>
+
+    <h2 class="section-title">Profile</h2>
+    <p>{{ cv.summary }}</p>
+
+    <h2 class="section-title">Skills</h2>
+    {% for s in skills %}
+        <span class="tag">{{ s }}</span>
+    {% endfor %}
+
+    <h2 class="section-title">Education</h2>
+    {% for edu in cv.education.all %}
+        <div class="card">
+            <h3>{{ edu.degree }}</h3>
+            <strong>{{ edu.university }}</strong>
+            <p>{{ edu.description }}</p>
+        </div>
+    {% endfor %}
+
+    <h2 class="section-title">Projects</h2>
+    {% for p in cv.projects.all %}
+        <div class="card">
+            <p>{{ p.description }}</p>
+        </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

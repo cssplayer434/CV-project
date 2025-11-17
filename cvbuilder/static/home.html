@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<h1 class="title">Welcome to CV Builder</h1>
+
+<div class="template-grid">
+    {% for t in templates %}
+    <div class="card">
+        
+        {% if t.preview_image %}
+            <img src="{{ t.preview_image.url }}" alt="{{ t.name }}">
+        {% else %}
+            <img src="{% static 'images/no-preview.png' %}" alt="No preview available">
+        {% endif %}
+        
+        <h3>{{ t.name }}</h3>
+    </div>
+    {% endfor %}
+</div>
+
+<a href="{% url 'create_cv' %}" class="btn">Create Your CV</a>
+
+{% endblock %}

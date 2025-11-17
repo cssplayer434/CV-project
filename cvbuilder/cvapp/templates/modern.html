@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ cv.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/templates/modern.css' %}">
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <h1>{{ cv.name }}</h1>
+        <p>{{ cv.location }} | {{ cv.email }} | {{ cv.phone }}</p>
+    </header>
+
+    <section class="summary">
+        <h2>Profile</h2>
+        <p>{{ cv.summary }}</p>
+    </section>
+
+    <section class="skills">
+        <h2>Skills</h2>
+        <div class="tags">
+                {% if skills %}
+                    {% for s in skills %}
+                        <span>{{ s }}</span>
+                    {% endfor %}
+                {% elif cv.skills %}
+                    <span>{{ cv.skills }}</span>
+                {% else %}
+                    <span>No skills listed.</span>
+                {% endif %}
+        </div>
+    </section>
+
+    <section class="education">
+        <h2>Education</h2>
+        {% for e in cv.education %}
+        <div class="card">
+            <h3>{{ e.degree }}</h3>
+            <p>{{ e.university }}</p>
+            <small>{{ e.description }}</small>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section class="projects">
+        <h2>Projects</h2>
+        {% for p in cv.projects %}
+        <div class="card">
+            <p>{{ p.description }}</p>
+        </div>
+        {% endfor %}
+    </section>
+
+</div>
+</body>
+</html>

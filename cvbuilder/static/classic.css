@@ -1,0 +1,69 @@
+body {
+    background: #faf9f7;
+    font-family: "Georgia", serif;
+    color: #333;
+}
+
+.classic-wrapper {
+    width: 900px;
+    margin: 40px auto;
+    padding: 40px 50px;
+    background: white;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.15);
+    border-radius: 10px;
+}
+
+.header {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    border-bottom: 3px solid #d7cbc4;
+    padding-bottom: 20px;
+}
+
+.profile {
+    width: 120px;
+    height: 120px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+section {
+    margin-top: 35px;
+}
+
+h2 {
+    font-size: 22px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #d7cbc4;
+    margin-bottom: 15px;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-list li {
+    background: #ece6df;
+    padding: 5px 12px;
+    border-radius: 8px;
+    list-style: none;
+}
+
+.block {
+    margin-bottom: 20px;
+}
+
+.sub {
+    margin: 0;
+    font-style: italic;
+    color: #666;
+}

@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ cv.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/templates/minimal.css' %}">
+</head>
+<body>
+
+<div class="page">
+
+    <h1>{{ cv.name }}</h1>
+    <p class="contact">{{ cv.email }} • {{ cv.phone }} • {{ cv.location }}</p>
+
+    <h2>Summary</h2>
+    <p>{{ cv.summary }}</p>
+
+    <h2>Skills</h2>
+    <ul>
+        {% if skills %}
+            {% for skill in skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        {% elif cv.skills %}
+            <li>{{ cv.skills }}</li>
+        {% else %}
+            <li>No skills listed.</li>
+        {% endif %}
+    </ul>
+
+    <h2>Education</h2>
+    {% for e in cv.education %}
+    <p><strong>{{ e.degree }}</strong> — {{ e.university }} <br>{{ e.description }}</p>
+    {% endfor %}
+
+    <h2>Projects</h2>
+    {% for p in cv.projects %}
+    <p>{{ p.description }}</p>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

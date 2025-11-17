@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Delete CV "{{ cv.title }}"?</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button class="btn-danger">Confirm Delete</button>
+</form>
+
+{% endblock %}

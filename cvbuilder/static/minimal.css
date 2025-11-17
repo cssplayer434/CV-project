@@ -1,0 +1,39 @@
+body {
+    background: #ffffff;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #222;
+}
+
+.page {
+    width: 850px;
+    margin: 40px auto;
+}
+
+h1 {
+    font-size: 38px;
+    margin: 0;
+}
+
+.contact {
+    color: #555;
+    margin-bottom: 35px;
+}
+
+h2 {
+    font-size: 20px;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 4px;
+    margin-top: 35px;
+}
+
+.minimal-list li {
+    margin-bottom: 4px;
+}
+
+.edu-item {
+    margin-bottom: 20px;
+}
+
+.project {
+    margin-bottom: 15px;
+}

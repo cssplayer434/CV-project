@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{{ cv.name }} – Classic Resume</title>
+
+<style>
+body {
+    font-family: "Poppins", sans-serif;
+    background: #eef3fa;
+    margin: 40px;
+}
+.wrapper {
+    width: 820px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    border-top: 8px solid #0a58ca;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+.header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+.header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #0a58ca;
+}
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+    color: #0a58ca;
+}
+.section-title {
+    margin-top: 30px;
+    font-size: 22px;
+    border-bottom: 3px solid #0a58ca;
+    padding-bottom: 6px;
+}
+.skill-list li {
+    margin: 6px 0;
+    padding-left: 10px;
+    border-left: 4px solid #0a58ca;
+}
+.card {
+    background: #f7faff;
+    padding: 15px;
+    margin-top: 15px;
+    border-left: 6px solid #0a58ca;
+    border-radius: 8px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="wrapper">
+
+    <div class="header">
+        {% if cv.profile_photo %}
+            <img src="{{ cv.profile_photo.url }}">
+        {% endif %}
+        <div>
+            <h1>{{ cv.name }}</h1>
+            <p>{{ cv.email }} • {{ cv.phone }} • {{ cv.location }}</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Summary</h2>
+    <p>{{ cv.summary }}</p>
+
+    <h2 class="section-title">Skills</h2>
+    <ul class="skill-list">
+        {% for s in skills %}
+            <li>{{ s }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2 class="section-title">Education</h2>
+    {% for edu in cv.education.all %}
+        <div class="card">
+            <h3>{{ edu.degree }}</h3>
+            <strong>{{ edu.university }}</strong>
+            <p>{{ edu.description }}</p>
+        </div>
+    {% endfor %}
+
+    <h2 class="section-title">Projects</h2>
+    {% for p in cv.projects.all %}
+        <div class="card">
+            <p>{{ p.description }}</p>
+        </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

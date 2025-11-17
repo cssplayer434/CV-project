@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ cv.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/templates/classic.css' %}">
+</head>
+<body>
+<div class="resume">
+    <div class="left">
+        {% if cv.photo %}
+        <img src="{{ cv.photo.url }}" class="profile-photo">
+        {% endif %}
+        <h1>{{ cv.name }}</h1>
+
+        <section>
+            <h2>Contact</h2>
+            <p>Email: {{ cv.email }}</p>
+            <p>Phone: {{ cv.phone }}</p>
+            <p>Location: {{ cv.location }}</p>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <ul>
+                {% if skills %}
+                    {% for skill in skills %}
+                        <li>{{ skill }}</li>
+                    {% endfor %}
+                {% elif cv.skills %}
+                    <li>{{ cv.skills }}</li>
+                {% else %}
+                    <li>No skills listed.</li>
+                {% endif %}
+            </ul>
+        </section>
+    </div>
+
+    <div class="right">
+        <section>
+            <h2>Summary</h2>
+            <p>{{ cv.summary }}</p>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            {% for item in cv.education %}
+            <div class="item">
+                <h3>{{ item.degree }}</h3>
+                <strong>{{ item.university }}</strong>
+                <p>{{ item.description }}</p>
+            </div>
+            {% endfor %}
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            {% for item in cv.projects %}
+            <div class="item">
+                <p>{{ item.description }}</p>
+            </div>
+            {% endfor %}
+        </section>
+    </div>
+</div>
+</body>
+</html>
